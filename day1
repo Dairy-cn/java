@@ -1,0 +1,86 @@
+package com.org.dairui;
+/*@Dairy
+ *  2018-05-31
+ *  try catch finally 
+ *  数据类型的转换问题
+ * 
+ * 
+ */
+public class StudyTest {
+
+	public static void main(String args[]) {
+		// TODO Auto-generated method stub
+		StudyTest s=new StudyTest();
+		
+		
+   System.out.println(s.method1());
+   System.out.println(s.Method2());
+   s.method3();
+   s.method4();
+   s.method5();
+   
+   
+	}
+	public int method1(){
+		 int i=1;
+		try{
+			i=i+1;
+			return i;
+			
+		}finally {
+			if(i>1){
+				
+				System.out.println("i=:");
+				i=i+10;
+			}
+		}
+		
+	}
+	public int Method2(){
+		
+		int i=1;
+		try {
+			
+			return i;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			
+			return ++i;
+		}
+		
+	}
+	public void method3(){
+		
+		int num=50;
+		 num = num ++ * 2 ;
+		 System.out.println(num);
+		 
+	}
+	
+          public void method4() { 
+              int sum = 0 ; 
+
+              for (int x = 0 ; x < 10 ; x ++) { 
+                  sum += x ; 
+                  if (x % 3 == 0) { 
+                	  System.out.println(x);
+                      break ; 
+                  } 
+              } 
+              System.out.println(sum) ; 
+          } 
+       public void method5(){
+    	   int num = 2147483647 ; 
+    	   long s1 = 0;
+           byte s3=(byte)300;
+    	   
+    	   int s2;
+           num += 1L ; 
+           s2=(int) (num+1L);
+           System.out.println(num) ; 
+           System.out.println(Math.round(-15.61)) ; 
+           System.out.println(s3);
+       }
+
+}
