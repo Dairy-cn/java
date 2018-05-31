@@ -86,5 +86,87 @@ public class StudyTest {
            System.out.println(Math.round(-15.61)) ; 
            System.out.println(s3);
        }
+              public void method6(){
+    	   
+    	   Scanner sc=new Scanner(System.in);
+    	   int i=1;
+    	   int sum = 0;
+    	   while(i<11){
+    		   sum+=sc.nextInt();
+    		   i++;
+    		   
+    		   
+    	   }
+    	   System.out.println(sum);
+    	   
+       }
+       public void Method7(){
+    	   
+    	   Scanner sc=new Scanner(System.in);
+    	   System.out.println("请输入月份");
+    	   int ss=sc.nextInt();
+    	   if(ss>=1&&ss<=4){
+    		   System.out.println("本月是春季");
+    	   }else if(ss>=4&&ss<=8){
+    		   System.out.println("本月是夏季");
+    		   
+    	   }else{
+    		   System.out.println("本月是冬季");
+    	   }
+    	   
+       }
+       public void Method8(){
+    	   /*
+    	    * 计算纸张折叠多少次可以达到珠穆拉玛峰的高度
+    	    */
+    	   int n=0;
+    	   double i=0.01;
+    	  System.out.println("sss");
+    	   while(i<8848){
+    
+    		   i*=2;
+    		   n++;
+    		   System.out.println("n="+n);
+    		   
+    	   }
+       }
+       public void method9(){
+    	   
+    	
+    	  float ma=0;//这里我忘记把数据类型转换为float，导致的结果出现了很大的差别
+    	   for(int i=1;ma<100;i++){
+    		   ma+=2.5;
+    		   System.out.println("第"+i+"天有"+ma);
+    		if(i%5==0){
+    			ma=ma-6;
+    			System.out.println("第"+i+"天还剩"+ma);
+    			
+    			
+    		}
+    		  System.out.println(i); 
+    	   }
+    	 
+       }
+       public void method10(){
+    	   int sum = 100;// 最终的目标
+    	   double db = 2.5;// 每次存放的钱数
+    	   int day = 1;// 天数
+    	   double dsum = 0;// 每次存放的总数
+    	   while (true) {
+    	   	dsum = dsum + db;// 返回每天都存放钱的总和
+    	   	if (day % 5 == 0) {// 判断是不是5的倍数
+    	   		dsum = dsum - 6;// 从总数中扣去6元
+    	   		System.out.println("第" + day + "天花去6元，还剩" + dsum + "元！");
+    	   	}
+    	   	boolean flag = dsum >= sum;// 求dsum是否大于sum的boolean值
+    	   	if (flag) {	// 如果是true则输出最终的结果，并跳出循环
+    	   		System.out.println("要经过连续存储" + day + "天，才能存上100元！");
+    	   		break;
+    	   	} else {// 否则天数加1，也就是继续存钱
+    	   		day++;
+    	   	}
+    	   }
+
+       }
 
 }
