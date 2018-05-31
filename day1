@@ -168,5 +168,12 @@ public class StudyTest {
     	   }
 
        }
+        public void method11(){
+    	   char[] s=new char[]{'d','r','d'};
+    	   for(char ss:s){
+    		   
+    		   System.out.println(ss);
+    	   }
+       }
 
 }
