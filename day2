@@ -1,0 +1,145 @@
+package com.org.dairui;
+
+import java.util.Scanner;
+//某个公司采用公用电话网络传递数据信息，数据是小于8位的整数，为了确保安全，在传递过程中需要加密，加密规则如下：首先将数据倒序，然后将每位数字都加上5，再用和除以10的余数代替该数字，最后将第一位和最后一位数字交换
+
+
+public class day2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       day2 d=new day2();
+       System.out.println(6^3);
+      // d.method1();
+      // d.method2();
+       d.method4();
+	}
+	public void method1(){
+		//     键盘录入数据
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入号码（不小于8位）：");
+//      定义一个录入的号码
+        int number=sc.nextInt();
+//      定义一个数组用来存放号码,数组长度不可能大于8
+        int[] arr=new int[8];
+        getArray(arr,number);   
+    }
+//  将号码取出赋值给数组
+    public static void getArray(int[] arr,int number){
+//  定义一个索引值index为0      
+        int index;
+        for(index=0;number>0;index++){
+//  对键盘录入的数据获取并转换成数组
+            arr[index]=number%10;
+            number/=10;
+        }
+        System.out.println("逆序后的号码：");
+//  遍历数组
+        for(int x=0;x<index;x++){
+            System.out.print(arr[x]);
+        }
+        System.out.println();
+        System.out.println("加5对10取余之后的号码是：");
+//  将每位数字都加上5，再用和除以10的余数代替该数字
+        for(int x=0;x<index;x++){
+            arr[x]+=5;
+            arr[x]%=10;
+            System.out.print(arr[x]);
+        }
+        System.out.println();
+        System.out.println("最后得出的密码是：");
+//  将第一位和最后一位数字交换
+        int temp=arr[0];
+        arr[0]=arr[index-1];
+        arr[index-1]=temp;
+//  遍历数组
+        for(int x=0;x<index;x++){
+            System.out.print(arr[x]);
+        }   
+    }
+    public void method2(){
+    	
+    	System.out.println("********************请输入一个大于八位的数字");
+    	Scanner sc=new Scanner(System.in);
+    	int num=sc.nextInt();
+    	System.out.println("得到的数字为:"+num);
+    	method3(num);
+    	
+    }
+    private void method3(int num) {
+		// TODO Auto-generated method stub
+    	int[] arr=new int[8];
+		 for(int i=0;num>0;i++){
+			arr[i]=num%10;
+			num=num/10;
+			 
+		 }
+		 System.out.println("倒序后的数为：");
+		 for(int j=0;j<arr.length;j++){
+			 
+			 System.out.print(arr[j]);
+		 }
+		 //加五
+		 for(int m=0;m<arr.length;m++){
+			 arr[m]=arr[m]+5;
+			 if(arr[m]>=10){
+				 
+				 arr[m]=arr[m]-10;
+			 }
+			 
+		 }
+		 //倒叙
+		 for(int n=0;n<arr.length;n++){
+			 int temp;
+			 temp=arr[n];
+			 arr[n]=arr[arr.length-1-n];
+			 arr[arr.length-1-n]=temp;
+			 
+			 
+		 }
+		 System.out.println("最后得到的数为");
+		 for(int i=0;i<arr.length;i++){
+			 
+			 System.out.print(arr[i]);
+		 }
+		 
+		 
+	}
+    public void method4(){
+    	//杨辉三角形
+    	
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("请输入你要打印的杨辉三角形的行数：");
+    	int num=sc.nextInt();
+    	
+    	int[][] arr=new int[num][num];
+    	
+    	for(int i=0;i<arr.length;i++){
+    		arr[i][0]=1;
+    		arr[i][i]=1;
+    		
+    	}
+    	for(int i=2;i<arr.length;i++){
+    		for(int j=1;j<i;j++){
+    			
+    			arr[i][j]=arr[i-1][j-1]+arr[i-1][j];
+    			
+    			
+    		}
+    		
+    		
+    	}
+    	for(int i=0;i<arr.length;i++){
+			for(int j=0;j<=i;j++){
+				
+				System.out.print(arr[i][j]+"\t");
+				
+			}
+			System.out.println();
+			
+		}
+    }
+	
+	
+
+}
