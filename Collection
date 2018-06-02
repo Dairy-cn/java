@@ -1,0 +1,50 @@
+package com.org.dairui;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+public class CollectionTest{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+             CollectionTest ct=new CollectionTest();
+             ct.method1();
+             List<People> list=new ArrayList<People>();
+            
+         
+             
+             
+             list.add(new People("代锐",201314));
+             Iterator<People> it=list.iterator();
+             while(it.hasNext()){
+            	 People p=it.next();
+            	 System.out.println(p.getName()+"*********"+p.getNum());
+            	 
+             }
+	}
+	public void method1(){
+		
+		List<String> list =new ArrayList<String>();
+		list.add("dariui");
+		list.add("a");
+		list.add("r");
+		list.add("1");
+		list.add("2");
+		list.add("4");
+		list.add("4");
+		for(String s:list){	
+			System.out.println(s);
+		}
+		System.out.println(list.get(2));
+		Iterator<String> it=list.iterator();
+		
+		while(it.hasNext()){
+			
+			System.out.println(it.next());
+		}
+	}
+	
+
+}
