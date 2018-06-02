@@ -1,0 +1,31 @@
+package com.org.dairui;
+
+public class ThreadTest implements Runnable{
+     private String s="typecho的根本优势在于原生支持Markdown语法，可是不是所有人都对这玩意儿感冒的，比如我这种用Word离线写作、上传博文的";
+	private boolean interrupted;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+         ThreadTest tt=new ThreadTest();
+         Thread t=new Thread(tt);
+         t.start();
+         
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		String[] ss=s.split("");
+		for(String ch:ss){
+			System.out.print(ch);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+		}
+		
+	}
+
+}
