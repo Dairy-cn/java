@@ -1,0 +1,95 @@
+package com.org.dairui;
+
+import java.text.DecimalFormat;
+import java.util.Date;
+
+public class syncTest extends Thread{
+    public static Integer num=10;//静态类变量
+   private static String name;
+   public syncTest(String name){
+	   this.name=name;
+	   
+   }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		syncTest st=new syncTest("代锐");
+//		syncTest st2=new syncTest("王艳梅");
+//        Thread t=new Thread(st);
+//        Thread t2=new Thread(st2);
+//        t.start();
+//        t2.start();
+	syncTest sn=new syncTest("dairui");
+//		sn.timeTest();
+	sn.numFormat();
+        	
+        
+	}
+	@Override
+	public void run() {
+		
+		// TODO Auto-generated method stub
+	/*	synchronized (num) {
+			
+		{
+		for(int i=num;num>0;num--){
+			System.out.println("剩余余票为："+num);
+		System.out.println(name+"取走了一张票");
+	
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		} 
+			if(num<=0){
+				System.out.println("票数为负");
+			}
+	
+	}
+		}
+		}*/
+		syncMethod();
+		
+	}
+	private static synchronized void syncMethod(){
+		for(int i=num;num>0;num--){
+			System.out.println("剩余余票为："+num);
+		System.out.println(name+"取走了一张票");
+	
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		} 
+			if(num<=0){
+				System.out.println("票数为负");
+			
+			}
+	
+	
+		
+	}
+	//格式时间
+	public void timeTest(){
+		long timemi=System.currentTimeMillis();
+		Date time =new Date(timemi);
+
+		System.out.println(String.format("%tc", time));
+		
+		
+	}
+	//数字格式化
+	public void numFormat(){
+		double i=0.789;
+		DecimalFormat dm=new DecimalFormat();
+		String output=dm.format(i);
+		System.out.println(output);
+		dm.applyPattern("0.00%");//调用参数模板
+		System.out.println(dm.format(i));
+	}
+}
