@@ -1,0 +1,62 @@
+1、<!-- 全局配置参数 -->
+	<settings>
+		<!-- 延迟加载总开关 -->
+		<setting name="lazyLoadingEnabled" value="true" />	
+		<!-- 设置按需加载 -->
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+  
+  
+  
+  2、<resultMap type="orders" id="ResultLlazy">
+	<id column="id" property="id" />
+
+		<result column="user_id" property="user_id" />
+		<result column="number" property="number" />
+		<result column="createtime" property="createtime" />
+		<result column="note" property="note" />
+		<association property="user" select="findUserbyId" column="user_id"></association>
+	
+	</resultMap>
+	<select id="findOrdersUserListByResultmap"
+		resultMap="ResultMap123">
+		select orders.*,user.username,user.sex from orders,user
+		WHERE
+		user.id=orders.user_id
+	</select>
+	<select id="findOrderUserDeteailItems" resultMap="ResultMap321">select user.*,
+		orders_.id AS orders_id,orders_.number AS orders_number,
+		orderdetail_.id AS orderdetail_id,items_.price AS
+		items_price,items_.id AS items_id from user,orders orders_,orderdetail
+		orderdetail_,items items_ WHERE user.id=orders_.user_id AND
+		orders_.id=orderdetail_.orders_id AND orderdetail_.items_id=items_.id
+	</select>
+	<select id="findUserbyId" parameterType="int" resultType="user">
+	select username,sex from user where id=#{id}
+	
+	
+	</select>
+	<select id="lazyLoadTest" resultMap="ResultLlazy">
+	select * from orders 
+	</select>
+  
+  
+  3、
+  	public List<Orders> lazyLoadTest();
+    
+    
+    4、	@Test
+	public void  LazyLoadTest() throws Exception {
+		
+		SqlSession sqlsession=sqlsessionfactory.openSession();
+		OrdresCustomMapper ordresCustomMapper=sqlsession.getMapper(OrdresCustomMapper.class);
+		
+		List<Orders> list=ordresCustomMapper.lazyLoadTest();
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.size());
+			
+			System.out.print(list.get(i).toString());
+			System.out.println();
+		}
+	}
