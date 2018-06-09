@@ -1,1 +1,29 @@
 
+创建一对一关系映射是mapper.xml格式
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，为了对sql语句进行隔离，方便管理 ，mapper开发dao方式，使用namespace有特殊作用 -->
+<mapper namespace="com.dairui.mapper.OrdresCustomMapper">
+<resultMap type="orders" id="ResultMap123">
+<id column="id" property="id"/>
+
+<result column="user_id" property="user_id"/>
+<result column="number" property="number"/>
+<result column="createtime" property="createtime"/>
+<result column="note" property="note"/>
+<association property="user" javaType="user">
+<id column="user_id" property="id"/>
+<result column="username" property="username"/>
+<result column="sex" property="sex"/>
+
+</association>
+
+</resultMap>
+<select id="findOrdersUserListByResultmap" resultMap="ResultMap123">
+select orders.*,user.username,user.sex from orders,user WHERE user.id=orders.user_id
+</select>
+
+</mapper>
+
