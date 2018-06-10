@@ -1,0 +1,27 @@
+1.
+导入ehcache jar包
+
+2.
+配置ehcache.xml文件
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
+	<!--diskStore：缓存数据持久化的目录 地址  mac上以绝对路径-->
+	<diskStore path="/Users/dary/eclipse-workspace/cache" />
+	<defaultCache 
+		maxElementsInMemory="1000" //内存最大的缓存对象
+		maxElementsOnDisk="10000000” //缓存到磁盘的最大对象
+		eternal="false" //
+		overflowToDisk="false" 
+		diskPersistent="true"
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="120" 
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU">
+	</defaultCache>
+</ehcache>
+
+3.
+在sqlmapconfig文件中开启缓存
+在mapper文件添加缓存元素<cache type="org.mybatis.caches.ehcache.EhcacheCache">
+
+4、测试缓存用例
