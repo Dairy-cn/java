@@ -1,0 +1,25 @@
+package com.dairui.chars;
+
+import java.util.Date;
+import java.util.Properties;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(-2 >>> 1);
+		System.out.println(new Date());
+		Properties properties = System.getProperties();
+		properties.list(System.out);
+		System.out.println(properties);
+		Runtime runtime=Runtime.getRuntime();
+		System.out.println(runtime.freeMemory());
+		System.out.println(runtime.maxMemory());
+//		for(String s:args) {
+//			
+//			System.out.println("SSSSSSSSSSSS"+s);
+//		}
+
+	}
+
+}
