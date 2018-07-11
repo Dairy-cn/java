@@ -1,0 +1,43 @@
+package com.dairui.chars;
+
+public class Test5 extends Fulei {
+
+	@Override
+	public void mthon2() {
+		// TODO Auto-generated method stub
+		super.mthon2();
+	}
+
+	@Override
+	public void Fulei() {
+		// TODO Auto-generated method stub
+		super.Fulei();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Test5 test5 = new Test5();
+		Fulei fulei = new Fulei();
+		Fulei.mthon1((Test5) fulei);
+	}
+
+}
+
+class Fulei {
+	static public void mthon1(Fulei test5) {
+
+		System.out.println("mthon1" + test5);
+
+	}
+
+	public void mthon2() {
+
+		System.out.println("mthon2");
+
+	}
+
+	public void Fulei() {
+		System.out.println("Fulei");
+
+	}
+}
