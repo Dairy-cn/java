@@ -1,0 +1,71 @@
+package com.dairui.chars;
+
+public class Test2 {
+	static void methom2(Methtom1 y) {
+		y.x = 'z';
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Methtom1 methtom1 = new Methtom1();
+		methtom1.x = 'a';
+		System.out.println(methtom1.x);
+		methom2(methtom1);
+
+		System.out.println(methtom1.x);
+		Value value1 = new Value();
+		Value value2 = new Value();
+		System.out.println(value1.equals(value2));
+		Integer integer1 = new Integer(23);
+		Integer integer2 = new Integer(23);
+		System.out.println(integer1.equals(integer2));
+		System.out.println(10 > 12 ? true : false);
+		int i = 1;
+		while (i <= 100) {
+			System.out.println(i);
+			if (i == 47) {
+
+				// break;
+
+			}
+			i++;
+		}
+		for (int j = 0; j < 10; j++) {
+			switch (j) {
+			case 0:
+				System.out.println("0");
+			case 1:
+				System.out.println("1");
+			case 2:
+				System.out.println("2");
+			case 3:
+				System.out.println("3");
+			case 4:
+				System.out.println("4");
+			case 5:
+				System.out.println("5");
+			case 6:
+				System.out.println("6");
+
+			default:
+				System.out.println("default");
+			}
+
+		}
+
+	}
+
+}
+
+class Methtom1 {
+
+	char x;
+
+}
+
+class Value {
+
+	int i;
+
+}
