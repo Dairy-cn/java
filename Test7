@@ -1,0 +1,32 @@
+package com.dairui.chars;
+
+public class Test7 implements shape {
+	class Test8 {
+		public void methom1() {
+
+			System.out.println("methom1");
+		}
+
+	}
+
+	public Test8 methom2() {
+
+		return new Test8();
+
+	}
+
+	public static void main(String[] arg) {
+		Test7 test7 = new Test7();
+		Test7.Test8 test8 = test7.methom2();
+		test8.methom1();
+
+	}
+
+	@Override
+	public void darw() {
+		// TODO Auto-generated method stub
+
+	}
+}
+// 对象：继承、多态、封装
+// 设计原则：单一、封闭、替换、
