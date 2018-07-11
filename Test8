@@ -1,0 +1,52 @@
+package com.dairui.chars;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Vector;
+
+public class Test8 {
+	public static void main(String[] arg) {
+
+		// Vector<Integer> integers = new Vector<Integer>();
+		// integers.addElement(3);
+		// integers.addElement(5);
+		// System.out.println(integers.elementAt(1));
+		// Iterator iterator = integers.iterator();
+		// while (iterator.hasNext()) {
+		//
+		// System.out.println("Iterator" + iterator.next());
+		//
+		// }
+		// for (Integer integer : integers) {
+		//
+		// System.out.println(integer);
+		// }
+		//
+		// System.out.println();
+		//
+		// Hashtable<Integer, String> hashtable = new Hashtable<Integer, String>();
+		// hashtable.put(1, "dairui");
+		// hashtable.put(2, "dr");
+		// System.out.println(hashtable.get(2));
+		List iList = new ArrayList();
+		iList.add(123);
+		iList.add("dairui");
+		iList.add(123);
+		System.out.println(iList.size());
+		Set set=new TreeSet();
+		set.add(123);
+		set.add(123);
+		System.out.println(set.size());
+
+	}
+
+	public String toString() {
+
+		return "Test8" + this + "\n";
+	}
+
+}
