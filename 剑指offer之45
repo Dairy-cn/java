@@ -1,0 +1,59 @@
+package com.dairui.chars;
+
+import java.util.ArrayList;
+
+/**
+ * @deprecated计算一个n的数，去除第m个数之后剩余的数是？ 
+ @author dary
+ *
+ */
+
+public class Test45 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i = 3 % 3;
+		System.out.println(i);
+		Test45 test45 = new Test45();
+		System.out.println(test45.Circle(6, 3) + "ssss");
+		System.out.println(test45.arryCicrcle(6, 3));
+
+	}
+
+	public int Circle(int n, int m) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < n; i++) {
+
+			list.add(i);
+		}
+		int idi = 0;
+		for (int j = 1; j < n; j++) {
+			idi = idi + (m - 1);
+			idi = idi % list.size();
+			// 注意是圆，所以删除之后，要在从后面算
+
+			list.remove(idi);
+
+		}
+
+		return list.get(0);
+
+	}
+
+	// 数学分析的方法，不懂
+	public int arryCicrcle(int n, int m) {
+
+		if (n < 1 || m < 1) {
+			return -1;
+		}
+		int sum = 0;
+		for (int i = 2; i < n; i++) {
+			sum = (sum + m) % 2;
+
+		}
+
+		return sum;
+
+	}
+
+}
