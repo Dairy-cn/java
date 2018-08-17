@@ -1,10 +1,13 @@
 package com.dairui.chars;
 
+import javax.xml.transform.Templates;
+
 public class SortDemo {
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 5, 6, 32, 5, 6754, 433, 12 };
+		int[] arr = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 		// selectionSort(arr);
-		insertionSort(arr);
+		// insertionSort(arr);
+		sheelSort(arr);
 		for (int i : arr) {
 			System.out.println(i);
 		}
@@ -91,5 +94,26 @@ public class SortDemo {
 
 		return arr;
 
+	}
+
+	public static int[] sheelSort(int[] arr) {
+	
+		int len = arr.length;
+		int temp = 0;
+		int k = 0;
+		for (int i = len / 2; i >= 1; i /= 2) {
+			for (int j = i; j < len; j++) {
+
+				temp = arr[j];
+				k = j - i;
+				for (; k >= 0 && arr[k] > temp; k -= i) {
+					arr[k + i] = arr[k];
+
+				}
+				arr[k + i] = temp;
+			}
+
+		}
+		return arr;
 	}
 }
